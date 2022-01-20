@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/posts.css') }}">
+    <title>Update</title>
+{% endblock %}
+
+{% block body %}
+
+<form action="/posts/update/{{post.id}}" method="POST" class="posts-form">
+    <div class="form-group">
+      <label>Title</label>
+      <input type="text" name="title" class="form-control" id="title" value="{{post.title}}">
+    </div>
+    <div class="form-group">
+      <label>Post</label>
+      <textarea name="content" class="form-control" id="content" cols="30" rows="2">{{post.content}}</textarea>
+    </div>
+    <div class="form-group">
+        <label>Author</label>
+        <input type="text" name="author" class="form-control" id="author" value="{{post.author}}">
+      </div>
+      <input type="submit" value="Save" class="btn btn-success">
+  </form>
+<hr style="margin-left: 25px;">
+
+{% endblock %}
